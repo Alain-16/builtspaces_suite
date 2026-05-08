@@ -21,7 +21,7 @@ public class Users {
 	private UUID id;
 	
 	@Column(name="org_id",nullable=false,updatable=false)
-	private UUID org_id;
+	private UUID OrgId;
 	
 	@Column(nullable=false,unique=true)
 	private String email;
@@ -46,7 +46,7 @@ public class Users {
 	
 	@PrePersist
 	void onCreate() {
-		this.createdAt = LocalDateTime.now()
+		this.createdAt = LocalDateTime.now();
 	}
 	
 
