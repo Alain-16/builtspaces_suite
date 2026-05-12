@@ -99,12 +99,7 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
-	<dependency>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-test</artifactId>
-	    <version>3.5.13</version><!--$NO-MVN-MAN-VER$-->
-	    <scope>test</scope>
-	</dependency>
+
 	<!-- Source: https://mvnrepository.com/artifact/com.tngtech.archunit/archunit-junit5 -->
 <!-- Source: https://mvnrepository.com/artifact/com.tngtech.archunit/archunit -->
 <dependency>
@@ -166,8 +161,6 @@
 <dependency>
     <groupId>org.hibernate.orm</groupId>
     <artifactId>hibernate-spatial</artifactId>
-    <version>7.2.12.Final</version><!--$NO-MVN-MAN-VER$-->
-    <scope>compile</scope>
 </dependency>
 	</dependencies>
 

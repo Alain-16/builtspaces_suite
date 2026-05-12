@@ -2,9 +2,8 @@ package com.builtspaces.elanet.users;
 
 import lombok.*;
 import jakarta.persistence.*;
-import java.util.*;
+import java.util.UUID;
 import java.time.LocalDateTime;
-import com.builtspaces.elanet.users.UserRoles;
 
 @Entity
 @Table(name="users",indexes = {@Index(name="idx_user_org",columnList="org_id"),
@@ -21,7 +20,7 @@ public class Users {
 	private UUID id;
 	
 	@Column(name="org_id",nullable=false,updatable=false)
-	private UUID OrgId;
+	private UUID orgId;
 	
 	@Column(nullable=false,unique=true)
 	private String email;

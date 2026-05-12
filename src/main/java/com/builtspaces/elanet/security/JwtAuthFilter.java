@@ -12,8 +12,11 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
+
 import org.springframework.lang.NonNull;
 import com.builtspaces.elanet.security.JwtService;
+import com.builtspaces.elanet.security.UserPrincipal;
 
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
@@ -44,7 +47,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 			
 			String role = jwtService.extractClaims(token).get("role",String.class);
 			
-			UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(jwtService.extractUserId(token),null,List.of(new SimpleGrantedAuthority("ROLE_" + role)));
+			UserPrincipal principal = new UserPrincipal(jwtService.extractUserId(token),UUID.fromString(jwtService.extractOrgId(token)));
+			
+			UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(principal,null,List.of(new SimpleGrantedAuthority("ROLE_" + role)));
 			
 			authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 			

@@ -28,7 +28,7 @@ public class JwtService {
 		this.refreshTokenExpiry = refreshTokenExpiry;
 	}
 	
-    public String generateAccessToken(Users user) {                                                                                                                                   
+    public String generateAccessToken(Users user) {
         return Jwts.builder()                                                                                                                                                      
                 .subject(user.getId().toString())
                 // orgId is embedded so TenantContextFilter can read it without a DB call
